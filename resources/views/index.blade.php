@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog Project</title>
+    @vite(['resources/css/style.css', 'resources/js/index.js'])
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="header">
+      <nav class="reveal">
+        <a href="index.html"><img src="images/logo.png" /></a>
+        <div class="nav-links" id="navLinks">
+          <i class="fa fa-times" onclick="hideMenu()"></i>
+          <ul>
+            <li class="menu"><a href="">MENU</a></li>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="about.html">Tentang</a></li>
+            <li><a href="artikel.html">Artikel</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+          </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+      </nav>
+
+      <div class="text-box">
+        <div class="reveal">
+        <h1>Blog Project</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat.<br>In id cursus mi pretium tellus duis convallis.
+        </p>
+        <a href="" class="hero-btn"
+          >Tentang Saya</a>
+        </div>
+      </div>
+    </div>
+
+    {{-- <!tentang> --}}
+    <section class="tentang reveal">
+      <div class="tentang-container">
+        <img class="" src="https://placehold.co/1200"/>
+        <div class="tentang-disc-container">
+          <h1>Tentang Saya</h1>
+          <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+          <br><br>
+          Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.</p>
+          <div class="btn-read">
+            <a>Kenali saya</a>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {{-- <!artikel terbaru> --}}
+    <section class="latest-article reveal">
+      <h1>Artikel Terbaru</h1>
+      <p>Berikut adalah beberapa artikel terbaru dari saya.</p>
+      <div class="artikel-card">
+        <img src="https://placehold.co/1280x720" alt="Artikel Terbaru" />
+        <div class="artikel-overlay">
+          <h2>Judul Artikel</h2>
+          <p>Deskripsi singkat tentang isi artikel yang menarik perhatian pembaca.</p>
+        </div>
+      </div>
+    </section>
+
+    {{-- <!artikel> --}}
+    <section class="artikel reveal">
+      <h1>Artikel Saya</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+      <div class="artikel-row">
+        <div class="artikel-col">
+          <img src="https://placehold.co/400"/>
+          <div class="artikel-tanggal">
+            <i class="fa-solid fa-calendar"></i>
+            <p>1 Januari 2023</p>
+          </div>
+          <h3>Artikel satu</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
+            faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi
+            pretium tellus duis convallis. Tempus leo eu aenean sed diam urna
+            tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas.
+            Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut
+            hendrerit semper vel class aptent taciti sociosqu. Ad litora
+            torquent per conubia nostra inceptos himenaeos.
+          </p>
+          <div class="artikel-baca">
+            <a>Baca selengkapnya</a>
+            <i class="fa-brands fa-readme"></i>
+          </div>
+        </div>
+        <div class="artikel-col">
+          <img src="https://placehold.co/400" alt="description of myimage" />
+          <div class="artikel-tanggal">
+            <i class="fa-solid fa-calendar"></i>
+            <p>1 Januari 2023</p>
+          </div>
+          <h3>Artikel Dua</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
+            faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi
+            pretium tellus duis convallis. Tempus leo eu aenean sed diam urna
+            tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas.
+            Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut
+            hendrerit semper vel class aptent taciti sociosqu. Ad litora
+            torquent per conubia nostra inceptos himenaeos.
+          </p>
+          <div class="artikel-baca">
+            <a>Baca selengkapnya</a>
+            <i class="fa-brands fa-readme"></i>
+          </div>
+        </div>
+        <div class="artikel-col">
+          <img src="https://placehold.co/400" alt="description of myimage" />
+          <div class="artikel-tanggal">
+            <i class="fa-solid fa-calendar"></i>
+            <p>1 Januari 2023</p>
+          </div>
+          <h3>Artikel Tiga</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
+            faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi
+            pretium tellus duis convallis. Tempus leo eu aenean sed diam urna
+            tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas.
+            Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut
+            hendrerit semper vel class aptent taciti sociosqu. Ad litora
+            torquent per conubia nostra inceptos himenaeos.
+          </p>
+          <div class="artikel-baca">
+            <a>Baca selengkapnya</a>
+            <i class="fa-brands fa-readme"></i>
+          </div>
+        </div>
+      </div>
+      <div class="btn-read">
+        <a>Muat lebih banyak</a>
+        <i class="fa-solid fa-arrow-right"></i>
+      </div>
+    </section>
+
+    {{-- <!Ngajak> --}}
+    <section class="about-me reveal">
+      <h1>Mari Bergabung Bersama Saya<br />Dimanapun Dan Kapanpun</h1>
+      <a href="" class="hubungi">HUBUNGI SAYA</a>
+    </section>
+
+    {{-- <!Copyright> --}}
+    <section class="footer reveal">
+      <p>Quote(?)</p>
+      <div class="icons">
+        <a href=""
+          ><i class="fa fa-facebook"></i
+        ></a>
+        <a href=""><i class="fa fa-twitter"></i></a>
+        <a href=""
+          ><i class="fa fa-instagram"></i
+        ></a>
+        <a href=""><i class="fa fa-linkedin"></i></a>
+      </div>
+      <p>
+        <i class="fa-solid fa-at"></i> Nama Penulis
+      </p>
+    </section>
+
+    <script
+      src="https://kit.fontawesome.com/d37debc9e5.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="{{ mix('resources/js/index.js') }}"></script>
+  </body>
+</html>
