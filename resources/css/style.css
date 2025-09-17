@@ -298,8 +298,14 @@ h3 {
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 1.2s ease; /* durasi dan kelancaran */
-    will-change: transform; /* bantu performa animasi */
+    transition: transform 4.5s ease;
+    /*durasidankelancaran*/
+    will-change: transform;
+    /*bantuperformaanimasi*/
+    :-webkit-transition: transform 4.5s ease;
+    -moz-transition: transform 4.5s ease;
+    -ms-transition: transform 4.5s ease;
+    -o-transition: transform 4.5s ease;
 }
 
 .artikel-card:hover img {
