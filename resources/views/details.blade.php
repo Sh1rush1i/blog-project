@@ -15,48 +15,21 @@
   </head>
 
   <body>
-    <div class="header">
-      <nav class="reveal">
-        <div class="nav-links" id="navLinks">
-          <i class="fa fa-times" onclick="hideMenu()"></i>
-          <ul>
-            <li class="menu"><a href="">MENU</a></li>
-            <li><a href="index.html">Beranda</a></li>
-            <li><a href="{{ route('tentang') }}">Tentang</a></li>
-            <li><a href="{{ route('tulisan') }}">Tulisan</a></li>
-            <li><a href="{{ route('kontak') }}">Kontak</a></li>
-          </ul>
-        </div>
-        <i class="fa fa-bars" onclick="showMenu()"></i>
-      </nav>
-
-      <div class="text-box">
-        <div class="reveal">
-        <h1>Asep Aziz Fauzi</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat.<br>In id cursus mi pretium tellus duis convallis.
-        </p>
-        <a href="" class="hero-btn"
-          >Tentang Saya</a>
-        </div>
-      </div>
-    </div>
-
-    {{-- <!tentang> --}}
-    <section class="tentang reveal">
-      <div class="tentang-container">
-        <img class="" src="https://placehold.co/1200"/>
-        <div class="tentang-disc-container">
-          <h1>Tentang Saya</h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
-          <br><br>
-          Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.</p>
-          <div class="btn-read">
-            <a>Kenali saya</a>
-            <i class="fa-solid fa-arrow-right"></i>
-          </div>
-        </div>
-      </div>
+    <section class="sub-header">
+        <nav class="reveal">
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li class="menu"><a href="">MENU</a></li>
+                    <li><a href="{{ route('index') }}">Beranda</a></li>
+                    <li><a href="{{ route('tentang') }}">Tentang</a></li>
+                    <li><a href="{{ route('tulisan') }}">Tulisan</a></li>
+                    <li><a href="{{ route('kontak') }}">Kontak</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+        <h1 class="reveal">Tulisan Saya</h1>
     </section>
 
     {{-- <!artikel terbaru> --}}
@@ -146,22 +119,10 @@
           </div>
         </div>
       </div>
-      <div class="btn-read">
-        <a>Muat lebih banyak</a>
-        <i class="fa-solid fa-arrow-right"></i>
-      </div>
-    </section>
-
-    {{-- <!Ngajak> --}}
-    <section class="about-me reveal">
-      <h1>Kata-Kata Bisa Mengubah Cara Kita Melihat Dunia 
-        <br> Temukan Makna Di Setiap Kata
-      </h1>
-      <a href="" class="hubungi">HUBUNGI SAYA</a>
     </section>
 
     {{-- <!Copyright> --}}
-    <section class="footer reveal">
+    <section class="footer reveal" style="margin-top: 40px;">
       <p>Quote(?)</p>
       <div class="icons">
         <a href=""
