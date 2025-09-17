@@ -62,20 +62,25 @@
 
     {{-- <!artikel terbaru> --}}
     <section class="latest-article reveal">
-      <h1>Artikel Terbaru</h1>
+      <h1>Tulisan Terbaru</h1>
       <p>Berikut adalah beberapa artikel terbaru dari saya.</p>
       <div class="artikel-card">
         <img src="https://placehold.co/1280x720" alt="Artikel Terbaru" />
+        <div class="gradient-overlay"></div>
         <div class="artikel-overlay">
-          <h2>Judul Artikel</h2>
-          <p>Deskripsi singkat tentang isi artikel yang menarik perhatian pembaca.</p>
+          <div class="artikel-tanggal">
+            <i class="fa-solid fa-calendar"></i>
+            <p>1 Januari 2023</p>
+          </div>
+          <h1>Judul Tulisan</h1>
+          <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.</p>
         </div>
       </div>
     </section>
 
     {{-- <!artikel> --}}
     <section class="artikel reveal">
-      <h1>Artikel Saya</h1>
+      <h1>Tulisan Saya</h1>
       <p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
       <div class="artikel-row">
         <div class="artikel-col">
@@ -84,7 +89,7 @@
             <i class="fa-solid fa-calendar"></i>
             <p>1 Januari 2023</p>
           </div>
-          <h3>Artikel satu</h3>
+          <h3>Tulisan satu</h3>
           <p>
             Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
             faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi
@@ -105,7 +110,7 @@
             <i class="fa-solid fa-calendar"></i>
             <p>1 Januari 2023</p>
           </div>
-          <h3>Artikel Dua</h3>
+          <h3>Tulisan Dua</h3>
           <p>
             Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
             faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi
@@ -126,7 +131,7 @@
             <i class="fa-solid fa-calendar"></i>
             <p>1 Januari 2023</p>
           </div>
-          <h3>Artikel Tiga</h3>
+          <h3>Tulisan Tiga</h3>
           <p>
             Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
             faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi
@@ -150,7 +155,9 @@
 
     {{-- <!Ngajak> --}}
     <section class="about-me reveal">
-      <h1>Mari Bergabung Bersama Saya<br />Dimanapun Dan Kapanpun</h1>
+      <h1>Kata-Kata Bisa Mengubah Cara Kita Melihat Dunia 
+        <br> Temukan Makna Di Setiap Kata
+      </h1>
       <a href="" class="hubungi">HUBUNGI SAYA</a>
     </section>
 
