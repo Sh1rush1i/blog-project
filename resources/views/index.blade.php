@@ -84,7 +84,7 @@
       <p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
       <div class="artikel-row">
         <div class="artikel-col">
-          <img src="https://placehold.co/400"/>
+          <img src="https://placehold.co/1000"/>
           <div class="artikel-tanggal">
             <i class="fa-solid fa-calendar"></i>
             <p>1 Januari 2023</p>
@@ -105,7 +105,7 @@
           </div>
         </div>
         <div class="artikel-col">
-          <img src="https://placehold.co/400" alt="description of myimage" />
+          <img src="https://placehold.co/1000" alt="description of myimage" />
           <div class="artikel-tanggal">
             <i class="fa-solid fa-calendar"></i>
             <p>1 Januari 2023</p>
@@ -126,7 +126,7 @@
           </div>
         </div>
         <div class="artikel-col">
-          <img src="https://placehold.co/400" alt="description of myimage" />
+          <img src="https://placehold.co/1000" alt="description of myimage" />
           <div class="artikel-tanggal">
             <i class="fa-solid fa-calendar"></i>
             <p>1 Januari 2023</p>
