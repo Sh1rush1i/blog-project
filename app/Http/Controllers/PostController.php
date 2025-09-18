@@ -25,15 +25,15 @@ class PostController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required|string',
-            'picture' => 'nullable',
+            'picture' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:10240', // Max 10MB
         ]);
 
         if ($request->hasFile('picture')) {
-            $path = $request->file('picture')->store('images', 'public');
+            $path = $request->file('picture')->store('picture', 'public');
             $validated['picture'] = $path;
         } else {
             // Use a default placeholder image path
-            $validated['picture'] = 'images/placeholder.png';
+            $validated['picture'] = 'picture/placeholder.png';
         }
 
         Post::create($validated);
