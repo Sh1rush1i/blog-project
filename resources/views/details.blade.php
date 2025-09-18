@@ -32,94 +32,125 @@
         <h1 class="reveal">Tulisan Saya</h1>
     </section>
 
-    {{-- <!artikel terbaru> --}}
-    <section class="latest-article reveal">
-      <h1>Tulisan Terbaru</h1>
-      <p>Berikut adalah beberapa artikel terbaru dari saya.</p>
-      <div class="artikel-card">
-        <img src="https://placehold.co/1280x720" alt="Artikel Terbaru" />
-        <div class="gradient-overlay"></div>
-        <div class="artikel-overlay">
-          <div class="artikel-tanggal">
+    {{-- <!artikel detail> --}}
+    <section class="base-section">
+      <div class="details-container reveal">
+        <div>
+          <h1>Tulisan Terbaru</h1>
+          <p>Berikut adalah beberapa artikel terbaru dari saya.</p>
+        </div>
+        <div class="artikel-tanggal">
             <i class="fa-solid fa-calendar"></i>
             <p>1 Januari 2023</p>
-          </div>
-          <h1>Judul Tulisan</h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.</p>
         </div>
+      </div>
+      <div class="carousel reveal">
+        <div class="carousel-inner">
+
+          <div class="carousel-item active">
+            <img src="https://placehold.co/1366x480" alt="Gambar Artikel" />
+          </div>
+          
+          <div class="carousel-item">
+            <img src="https://placehold.co/1366x480" alt="Gambar Artikel" />
+          </div>
+          <div class="carousel-item">
+            <img src="https://placehold.co/1366x480" alt="Gambar Artikel" />
+          </div>
+        </div>
+
+        <!-- Navigator -->
+        <button class="carousel-nav prev">‹</button>
+        <button class="carousel-nav next">›</button>
+
+        <!-- Indicators -->
+        <div class="carousel-indicators">
+          <button class="indicator active" data-slide-to="0"></button>
+          <button class="indicator" data-slide-to="1"></button>
+          <button class="indicator" data-slide-to="2"></button>
+        </div>
+      </div>
+
+      <!--Author-->
+      <div class="article-author reveal">
+        <div class="author-visual">
+          <span class="quote-mark left">“</span>
+          <span class="oval">
+            <img src="https://placehold.co/90x90" alt="">
+          </span>
+          <span class="quote-mark right">”</span>
+        </div>
+        <div class="author-text">
+          <h3 class="author-name">John Doe</h3>
+          <a class="author-role">Penulis</a>
+        </div>
+      </div>
+
+      <!--Konten tulisan-->
+      <div class="article-layout reveal">
+        <!-- Kolom kiri: isi artikel -->
+        <div class="article-main">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat...Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+            <br><br>
+            Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+            <br><br>
+            Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+            <br><br>
+            Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+            <br><br>
+            Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+          </p>
+        </div>
+
+        <!-- Kolom kanan: card artikel lainnya -->
+        <aside class="article-sidebar">
+          <h3 class="other-tulisan">Tulisan lain saya :</h3>
+          <div class="artikel-col reveal">
+            <img src="https://placehold.co/1000" alt="Thumbnail Artikel">
+            <div class="artikel-tanggal">
+              <i class="fa-solid fa-calendar"></i>
+              <p>1 Januari 2023</p>
+            </div>
+            <h3>Tulisan satu</h3>
+          </div>
+          <div class="artikel-col reveal">
+            <img src="https://placehold.co/1000" alt="Thumbnail Artikel">
+            <div class="artikel-tanggal">
+              <i class="fa-solid fa-calendar"></i>
+              <p>1 Januari 2023</p>
+            </div>
+            <h3>Tulisan satu</h3>
+          </div>
+          <div class="artikel-col reveal">
+            <img src="https://placehold.co/1000" alt="Thumbnail Artikel">
+            <div class="artikel-tanggal">
+              <i class="fa-solid fa-calendar"></i>
+              <p>1 Januari 2023</p>
+            </div>
+            <h3>Tulisan satu</h3>
+          </div>
+        </aside>
       </div>
     </section>
 
-    {{-- <!artikel> --}}
-    <section class="artikel reveal">
-      <h1>Tulisan Saya</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
-      <div class="artikel-row">
-        <div class="artikel-col">
-          <img src="https://placehold.co/1000"/>
-          <div class="artikel-tanggal">
-            <i class="fa-solid fa-calendar"></i>
-            <p>1 Januari 2023</p>
-          </div>
-          <h3>Tulisan satu</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
-            faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi
-            pretium tellus duis convallis. Tempus leo eu aenean sed diam urna
-            tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas.
-            Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut
-            hendrerit semper vel class aptent taciti sociosqu. Ad litora
-            torquent per conubia nostra inceptos himenaeos.
-          </p>
-          <div class="artikel-baca">
-            <a>Baca selengkapnya</a>
-            <i class="fa-brands fa-readme"></i>
-          </div>
-        </div>
-        <div class="artikel-col">
-          <img src="https://placehold.co/1000" alt="description of myimage" />
-          <div class="artikel-tanggal">
-            <i class="fa-solid fa-calendar"></i>
-            <p>1 Januari 2023</p>
-          </div>
-          <h3>Tulisan Dua</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
-            faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi
-            pretium tellus duis convallis. Tempus leo eu aenean sed diam urna
-            tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas.
-            Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut
-            hendrerit semper vel class aptent taciti sociosqu. Ad litora
-            torquent per conubia nostra inceptos himenaeos.
-          </p>
-          <div class="artikel-baca">
-            <a>Baca selengkapnya</a>
-            <i class="fa-brands fa-readme"></i>
-          </div>
-        </div>
-        <div class="artikel-col">
-          <img src="https://placehold.co/1000" alt="description of myimage" />
-          <div class="artikel-tanggal">
-            <i class="fa-solid fa-calendar"></i>
-            <p>1 Januari 2023</p>
-          </div>
-          <h3>Tulisan Tiga</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
-            faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi
-            pretium tellus duis convallis. Tempus leo eu aenean sed diam urna
-            tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas.
-            Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut
-            hendrerit semper vel class aptent taciti sociosqu. Ad litora
-            torquent per conubia nostra inceptos himenaeos.
-          </p>
-          <div class="artikel-baca">
-            <a>Baca selengkapnya</a>
-            <i class="fa-brands fa-readme"></i>
-          </div>
-        </div>
+    <div class="bottom-navigation">
+      <!-- Kiri -->
+      <a href="{{ route('index') }}" class="nav-left">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>Beranda</span>
+      </a>
+      <!-- Tengah (dekorasi) -->
+      <div class="nav-center">
+        <span class="quote-mark left">“</span>
+        <span class="quote-mark right">”</span>
       </div>
-    </section>
+      <!-- Kanan -->
+      <a href="{{ route('tulisan') }}" class="nav-right">
+        <span>Tulisan Lain</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
 
     {{-- <!Copyright> --}}
     <section class="footer reveal" style="margin-top: 40px;">
