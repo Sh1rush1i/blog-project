@@ -1,5 +1,6 @@
-//Navbar Toggle Menu
-var navLinks = document.getElementById("navLinks");
+// Navbar Toggle Menu
+const navLinks = document.getElementById("navLinks");
+
 function showMenu() {
     navLinks.style.right = "0";
 }
@@ -8,7 +9,7 @@ function hideMenu() {
     navLinks.style.right = "-200px";
 }
 
-//Reveal Animation
+// Fade in Animation
 (() => {
     const reveals = document.querySelectorAll(".reveal");
     if (!reveals.length) return;
@@ -36,7 +37,7 @@ function hideMenu() {
     reveals.forEach((el) => observer.observe(el));
 })();
 
-//carousel
+// Carousel
 document.addEventListener("DOMContentLoaded", () => {
     const inner = document.querySelector(".carousel-inner");
     const items = Array.from(document.querySelectorAll(".carousel-item"));
@@ -74,14 +75,31 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Autoplay setup
-    let autoplayInterval = 5000; // durasi per slide dalam milidetik
+    // Autoplay carousel
+    const autoplayInterval = 5000; // durasi per slide (ms)
     let autoplayId = setInterval(() => nextBtn.click(), autoplayInterval);
 
-    // Pause on hover
+    // Pause hover
     const carouselEl = document.querySelector(".carousel");
     carouselEl.addEventListener("mouseenter", () => clearInterval(autoplayId));
     carouselEl.addEventListener("mouseleave", () => {
         autoplayId = setInterval(() => nextBtn.click(), autoplayInterval);
     });
+
+    // Share WA
+    const rootLink = "https://example.com"; // ganti dengan link root kamu
+    const judul = document.getElementById("judul").innerText;
+    const konten = document.getElementById("konten").innerText;
+
+    // Bold judul
+    const pesan = `*${judul}*\n\n${konten}\n\nBaca lebih banyak di ${rootLink}`;
+    const encodedPesan = encodeURIComponent(pesan);
+
+    // Deteksi device
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    const waBase = isMobile
+        ? "https://wa.me/?text="
+        : "https://web.whatsapp.com/send?text=";
+
+    document.getElementById("wa-share-btn").href = waBase + encodedPesan;
 });

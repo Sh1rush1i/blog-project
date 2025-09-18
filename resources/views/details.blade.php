@@ -36,7 +36,7 @@
     <section class="base-section">
       <div class="details-container reveal">
         <div>
-          <h1>Tulisan Terbaru</h1>
+          <h1 id="judul">Tulisan Terbaru</h1>
           <p>Berikut adalah beberapa artikel terbaru dari saya.</p>
         </div>
         <div class="artikel-tanggal">
@@ -90,7 +90,7 @@
       <div class="article-layout reveal">
         <!-- Kolom kiri: isi artikel -->
         <div class="article-main">
-          <p>
+          <p id="konten">
             Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat...Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
             <br><br>
             Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
@@ -101,6 +101,11 @@
             <br><br>
             Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
           </p>
+          <a id="wa-share-btn" target="_blank" rel="noopener noreferrer">
+            <button class="btn-share">
+              <i class="fab fa-whatsapp"></i> Share ke WhatsApp
+            </button>
+          </a>
         </div>
 
         <!-- Kolom kanan: card artikel lainnya -->
@@ -132,6 +137,7 @@
           </div>
         </aside>
       </div>
+
     </section>
 
     <div class="bottom-navigation reveal">
