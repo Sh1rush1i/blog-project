@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -38,6 +39,19 @@ class PostController extends Controller
 
         Post::create($validated);
         return redirect()->route('index')->with('success', 'Post created successfully.');
+    }
+
+    public function show($slug, $stamp)
+    {
+        $post = Post::where('slug', $slug)
+            ->firstOrFail();
+
+        $other = Post::where('id', '!=', $post->id)
+            ->orderBy('created_at', 'desc')
+            ->limit(3)
+            ->get();
+
+        return view('details', compact('post', 'other'));
     }
 
 }

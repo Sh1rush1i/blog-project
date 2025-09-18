@@ -31,3 +31,9 @@ Route::get('/dashboard', function () {
 
 Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
 Route::post('/posts', [PostController::class, 'store'])->name('store');
+
+Route::get('/{slug}-{stamp}', [PostController::class, 'show'])
+    ->where([
+        'slug' => '[A-Za-z0-9\-]+',
+        'stamp' => '\d{12,14}'
+    ])->name('posts.show');
