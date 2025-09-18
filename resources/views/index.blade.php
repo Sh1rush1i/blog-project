@@ -70,44 +70,61 @@
     <section class="latest-article reveal">
         <h1>Tulisan Terbaru</h1>
         <p>Berikut adalah beberapa artikel terbaru dari saya.</p>
-        <div class="artikel-card">
-            <img src="{{ asset('storage/' . $posts->sortByDesc('created_at')->first()->picture) }}"
-                alt="Artikel Terbaru" />
-            <div class="gradient-overlay"></div>
-            <div class="artikel-overlay">
-                <div class="artikel-tanggal">
-                    <i class="fa-solid fa-calendar"></i>
-                    <p>{{ $posts->sortByDesc('created_at')->first()->created_at->format('d F Y') }}</p>
+        @if ($posts->isNotEmpty())
+            <div class="artikel-card">
+                <img src="{{ asset('storage/' . $posts->sortByDesc('created_at')->first()->picture) }}"
+                    alt="Artikel Terbaru" />
+                <div class="gradient-overlay"></div>
+                <div class="artikel-overlay">
+                    <div class="artikel-tanggal">
+                        <i class="fa-solid fa-calendar"></i>
+                        <p>{{ $posts->sortByDesc('created_at')->first()->created_at->format('d F Y') }}</p>
+                    </div>
+                    <h1>{{ $posts->sortByDesc('created_at')->first()->title }}</h1>
+                    <p style="white-space: pre-wrap">{{ $posts->sortByDesc('created_at')->first()->content }}</p>
                 </div>
-                <h1>{{ $posts->sortByDesc('created_at')->first()->title }}</h1>
-                <p style="white-space: pre-wrap">{{ $posts->sortByDesc('created_at')->first()->content }}</p>
             </div>
-        </div>
+        @else
+            <div class="artikel-card kosong">
+                <p>Belum ada artikel terbaru.</p>
+            </div>
+        @endif
     </section>
 
     {{-- <!artikel> --}}
     <section class="artikel reveal">
         <h1>Tulisan Saya</h1>
         <p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
-        <div class="artikel-row">
-            @foreach ($posts->sortByDesc('created_at')->take(3) as $post)
-                <div class="artikel-col">
-                    <img src="{{ asset('storage/' . $post->picture) }}" />
-                    <div class="artikel-tanggal">
-                        <i class="fa-solid fa-calendar"></i>
-                        <p>{{ $post->created_at->format('d F Y') }}</p>
+        @if ($posts->isNotEmpty())
+            <div class="artikel-row">
+                @foreach ($posts->sortByDesc('created_at')->take(3) as $post)
+                    <div class="artikel-col">
+                        <img src="{{ asset('storage/' . $post->picture) }}" />
+                        <div class="artikel-tanggal">
+                            <i class="fa-solid fa-calendar"></i>
+                            <p>{{ $post->created_at->format('d F Y') }}</p>
+                        </div>
+                        <h3>{{ $post->title }}</h3>
+                        <p style="white-space: pre-wrap">
+                            {{ $post->content }}
+                        </p>
+                        <div class="artikel-baca">
+                            <a
+                                href="{{ route('posts.show', [
+                                    'slug' => $post->slug,
+                                    'stamp' => $post->created_at->format('YmdHi'),
+                                ]) }}">
+                                Baca selengkapnya</a>
+                            <i class="fa-brands fa-readme"></i>
+                        </div>
                     </div>
-                    <h3>{{ $post->title }}</h3>
-                    <p class="white-space: pre-wrap">
-                        {{ $post->content }}
-                    </p>
-                    <div class="artikel-baca">
-                        <a>Baca selengkapnya</a>
-                        <i class="fa-brands fa-readme"></i>
-                    </div>
-                </div>
-            @endforeach
-        </div>
+                @endforeach
+            </div>
+        @else
+            <div class="artikel-row kosong">
+                <p>Belum ada artikel yang tersedia.</p>
+            </div>
+        @endif
         <div class="btn-read">
             <a href="{{ route('tulisan') }}">Muat lebih banyak</a>
             <i class="fa-solid fa-arrow-right"></i>
