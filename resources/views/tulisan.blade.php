@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,13 +9,10 @@
     @vite(['resources/css/style.css', 'resources/js/index.js'])
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
-      rel="stylesheet"
-    />
-  </head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+</head>
 
-  <body>
+<body>
     <section class="sub-header">
         <nav class="reveal">
             <div class="nav-links" id="navLinks">
@@ -34,115 +32,73 @@
 
     {{-- <!artikel terbaru> --}}
     <section class="latest-article reveal">
-      <h1>Tulisan Terbaru</h1>
-      <p>Berikut adalah beberapa artikel terbaru dari saya.</p>
-      <div class="artikel-card">
-        <img src="https://placehold.co/1280x720" alt="Artikel Terbaru" />
-        <div class="gradient-overlay"></div>
-        <div class="artikel-overlay">
-          <div class="artikel-tanggal">
-            <i class="fa-solid fa-calendar"></i>
-            <p>1 Januari 2023</p>
-          </div>
-          <h1>Judul Tulisan</h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.</p>
+        <h1>Tulisan Terbaru</h1>
+        <p>Berikut adalah beberapa artikel terbaru dari saya.</p>
+        <div class="artikel-card">
+            <img src="{{ asset('storage/' . $posts->first()->picture) }}" alt="Artikel Terbaru" />
+            <div class="gradient-overlay"></div>
+            <div class="artikel-overlay">
+                <div class="artikel-tanggal">
+                    <i class="fa-solid fa-calendar"></i>
+                    <p>{{ $posts->first()->created_at->format('d F Y') }}</p>
+                </div>
+                <h1>{{ $posts->first()->title }}</h1>
+                <p>{{ $posts->first()->content }}</p>
+            </div>
         </div>
-      </div>
     </section>
 
     {{-- <!artikel> --}}
     <section class="artikel reveal">
-      <h1>Tulisan Saya</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
-      <div class="artikel-row">
-        <div class="artikel-col">
-          <img src="https://placehold.co/1000"/>
-          <div class="artikel-tanggal">
-            <i class="fa-solid fa-calendar"></i>
-            <p>1 Januari 2023</p>
-          </div>
-          <h3>Tulisan satu</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
-            faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi
-            pretium tellus duis convallis. Tempus leo eu aenean sed diam urna
-            tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas.
-            Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut
-            hendrerit semper vel class aptent taciti sociosqu. Ad litora
-            torquent per conubia nostra inceptos himenaeos.
-          </p>
-          <div class="artikel-baca">
-            <a>Baca selengkapnya</a>
-            <i class="fa-brands fa-readme"></i>
-          </div>
+        <h1>Tulisan Saya</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+        <div class="artikel-row">
+            @if ($posts->count() > 1)
+                @foreach ($posts->skip(1) as $post)
+                    <div class="artikel-col">
+                        <img src="{{ asset('storage/' . $post->picture) }}" />
+                        <div class="artikel-tanggal">
+                            <i class="fa-solid fa-calendar"></i>
+                            <p>{{ $post->created_at->format('d F Y') }}</p>
+                        </div>
+                        <h3>{{ $post->title }}</h3>
+                        <p>
+                            {!! nl2br(e($post->content)) !!}
+                        </p>
+                        <div class="artikel-baca">
+                            <a
+                                href="{{ route('posts.show', [
+                                    'slug' => $post->slug,
+                                    'stamp' => $post->created_at->format('YmdHi'),
+                                ]) }}">Baca
+                                selengkapnya</a>
+                            <i class="fa-brands fa-readme"></i>
+                        </div>
+                    </div>
+                @endforeach
+            @else
+                <p>Tidak ada artikel lain yang tersedia.</p>
+            @endif
+
         </div>
-        <div class="artikel-col">
-          <img src="https://placehold.co/1000" alt="description of myimage" />
-          <div class="artikel-tanggal">
-            <i class="fa-solid fa-calendar"></i>
-            <p>1 Januari 2023</p>
-          </div>
-          <h3>Tulisan Dua</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
-            faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi
-            pretium tellus duis convallis. Tempus leo eu aenean sed diam urna
-            tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas.
-            Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut
-            hendrerit semper vel class aptent taciti sociosqu. Ad litora
-            torquent per conubia nostra inceptos himenaeos.
-          </p>
-          <div class="artikel-baca">
-            <a>Baca selengkapnya</a>
-            <i class="fa-brands fa-readme"></i>
-          </div>
-        </div>
-        <div class="artikel-col">
-          <img src="https://placehold.co/1000" alt="description of myimage" />
-          <div class="artikel-tanggal">
-            <i class="fa-solid fa-calendar"></i>
-            <p>1 Januari 2023</p>
-          </div>
-          <h3>Tulisan Tiga</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
-            faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi
-            pretium tellus duis convallis. Tempus leo eu aenean sed diam urna
-            tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas.
-            Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut
-            hendrerit semper vel class aptent taciti sociosqu. Ad litora
-            torquent per conubia nostra inceptos himenaeos.
-          </p>
-          <div class="artikel-baca">
-            <a>Baca selengkapnya</a>
-            <i class="fa-brands fa-readme"></i>
-          </div>
-        </div>
-      </div>
     </section>
 
     {{-- <!Copyright> --}}
     <section class="footer reveal" style="margin-top: 40px;">
-      <p>Quote(?)</p>
-      <div class="icons">
-        <a href=""
-          ><i class="fa fa-facebook"></i
-        ></a>
-        <a href=""><i class="fa fa-twitter"></i></a>
-        <a href=""
-          ><i class="fa fa-instagram"></i
-        ></a>
-        <a href=""><i class="fa fa-linkedin"></i></a>
-      </div>
-      <p>
-        <i class="fa-solid fa-at"></i> Asep Aziz Fauzi
-      </p>
+        <p>Quote(?)</p>
+        <div class="icons">
+            <a href=""><i class="fa fa-facebook"></i></a>
+            <a href=""><i class="fa fa-twitter"></i></a>
+            <a href=""><i class="fa fa-instagram"></i></a>
+            <a href=""><i class="fa fa-linkedin"></i></a>
+        </div>
+        <p>
+            <i class="fa-solid fa-at"></i> Asep Aziz Fauzi
+        </p>
     </section>
 
-    <script
-      src="https://kit.fontawesome.com/d37debc9e5.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://kit.fontawesome.com/d37debc9e5.js" crossorigin="anonymous"></script>
     <script src="{{ mix('resources/js/index.js') }}"></script>
-  </body>
+</body>
+
 </html>

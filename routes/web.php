@@ -9,17 +9,11 @@ Route::get('/tentang', function () {
     return view('tentang');
 })->name('tentang');
 
-Route::get('/tulisan', function () {
-    return view('tulisan');
-})->name('tulisan');
+Route::get('/tulisan', [PostController::class, 'showAll'])->name('tulisan');
 
 Route::get('/kontak', function () {
     return view('kontak');
 })->name('kontak');
-
-Route::get('/details', function () {
-    return view('details');
-})->name('details');
 
 Route::get('/login', function () {
     return view('admin.login');

@@ -89,6 +89,12 @@
             <!-- Kolom kiri: isi artikel -->
             <div class="article-main">
                 {!! nl2br(e($post->content)) !!}
+                <br>
+                <a id="wa-share-btn" target="_blank" rel="noopener noreferrer">
+                    <button class="btn-share">
+                        <i class="fab fa-whatsapp"></i> Share ke WhatsApp
+                    </button>
+                </a>
             </div>
 
             <!-- Kolom kanan: card artikel lainnya -->

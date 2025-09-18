@@ -54,4 +54,10 @@ class PostController extends Controller
         return view('details', compact('post', 'other'));
     }
 
+    public function showAll()
+    {
+        $posts = Post::orderBy('created_at', 'desc')->get();
+        return view('tulisan', compact('posts'));
+    }
+
 }
