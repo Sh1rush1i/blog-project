@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blog Project</title>
+    <title>Asep Aziz Fauzi</title>
     @vite(['resources/css/style.css', 'resources/js/index.js'])
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -32,12 +32,12 @@
 
       <div class="text-box">
         <div class="reveal">
-        <h1>Asep Aziz Fauzi</h1>
+        <h1>Asep Aziz Fauzi</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat.<br>In id cursus mi pretium tellus duis convallis.
         </p>
-        <a href="" class="hero-btn"
-          >Tentang Saya</a>
+        <a href="{{ route('tulisan') }}" class="hero-btn"
+          >Tulisan Saya</a>
         </div>
       </div>
     </div>
@@ -52,7 +52,7 @@
           <br><br>
           Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.</p>
           <div class="btn-read">
-            <a>Kenali saya</a>
+            <a href="{{ route('tentang') }}">Kenali saya</a>
             <i class="fa-solid fa-arrow-right"></i>
           </div>
         </div>
@@ -147,7 +147,7 @@
         </div>
       </div>
       <div class="btn-read">
-        <a>Muat lebih banyak</a>
+        <a href="{{ route('tulisan') }}">Muat lebih banyak</a>
         <i class="fa-solid fa-arrow-right"></i>
       </div>
     </section>
@@ -157,7 +157,7 @@
       <h1>Kata-Kata Bisa Mengubah Cara Kita Melihat Dunia 
         <br> Temukan Makna Di Setiap Kata
       </h1>
-      <a href="" class="hubungi">HUBUNGI SAYA</a>
+      <a href="{{ route('kontak') }}" class="hubungi">HUBUNGI SAYA</a>
     </section>
 
     {{-- <!Copyright> --}}
@@ -174,7 +174,7 @@
         <a href=""><i class="fa fa-linkedin"></i></a>
       </div>
       <p>
-        <i class="fa-solid fa-at"></i> Nama Penulis
+        <i class="fa-solid fa-at"></i> Asep Aziz Fauzi
       </p>
     </section>
 

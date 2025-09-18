@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blog Project</title>
+    <title>Asep Aziz Fauzi</title>
     @vite(['resources/css/style.css', 'resources/js/index.js'])
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -78,7 +78,7 @@
         <a href=""><i class="fa fa-linkedin"></i></a>
       </div>
       <p>
-        <i class="fa-solid fa-at"></i> Nama Penulis
+        <i class="fa-solid fa-at"></i> Asep Aziz Fauzi
       </p>
     </section>
 
