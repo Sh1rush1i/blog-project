@@ -423,6 +423,37 @@ h3 {
     height: 200px;
 }
 
+.btn-share {
+    display: inline-block;
+    margin-top: 64px;
+    text-decoration: none;
+    color: #a67c00;
+    border: 1px solid #bf9b30;
+    padding: 12px 34px;
+    font-size: 13px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+    border-radius: 24px;
+    -webkit-border-radius: 24px;
+    -moz-border-radius: 24px;
+    -ms-border-radius: 24px;
+    -o-border-radius: 24px;
+}
+
+.btn-share:hover {
+    border: 1px solid #ffdc73;
+    background: #ffdc73;
+    transition: 1s;
+    font-weight: bold;
+    color: #503c01;
+}
+
+.btn-share i {
+    font-size: 18px;
+    margin-right: 8px;
+}
+
 /*bottom navnya details*/
 .bottom-navigation {
     display: flex;

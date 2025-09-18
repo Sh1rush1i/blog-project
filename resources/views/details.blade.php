@@ -34,7 +34,7 @@
     <section class="base-section">
         <div class="details-container reveal">
             <div>
-                <h1>{{ $post->title }}</h1>
+                <h1 id="judul">{{ $post->title }}</h1>
                 {{-- <p>Berikut adalah beberapa artikel terbaru dari saya.</p> --}}
             </div>
             <div class="artikel-tanggal">
