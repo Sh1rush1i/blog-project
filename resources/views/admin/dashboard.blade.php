@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,26 +11,48 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap');
-        .font-family-poppins { font-family: 'Poppins', sans-serif; }
-        .bg-sidebar { background: #3d68ff; }
-        .cta-btn { color: #3d68ff; }
-        .active-nav-link { background: #1947ee; }
-        .nav-item:hover { background: #1947ee; }
-        .account-link:hover { background: #3d68ff; }
+
+        .font-family-poppins {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .bg-sidebar {
+            background: #3d68ff;
+        }
+
+        .cta-btn {
+            color: #3d68ff;
+        }
+
+        .active-nav-link {
+            background: #1947ee;
+        }
+
+        .nav-item:hover {
+            background: #1947ee;
+        }
+
+        .account-link:hover {
+            background: #3d68ff;
+        }
+
         /* Animasi modal */
         .modal-enter {
             opacity: 0;
             transform: scale(0.95);
         }
+
         .modal-enter-active {
             opacity: 1;
             transform: scale(1);
             transition: opacity 0.3s ease, transform 0.3s ease;
         }
+
         .modal-exit {
             opacity: 1;
             transform: scale(1);
         }
+
         .modal-exit-active {
             opacity: 0;
             transform: scale(0.95);
@@ -37,6 +60,7 @@
         }
     </style>
 </head>
+
 <body class="bg-gray-100 font-family-poppins flex">
 
     <!-- Sidebar -->
@@ -45,7 +69,7 @@
             <a href="index.html" class="text-white text-3xl font-semibold uppercase hover:text-gray-300">Admin</a>
 
             <!-- Tombol buka modal -->
-            <button id="openModal" 
+            <button id="openModal"
                 class="w-full bg-white cta-btn  py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center text-blue-500 hover:text-blue-700">
                 <i class="fas fa-plus mr-3"></i> Tambah Tulisan
             </button>
@@ -54,10 +78,11 @@
             <div id="myModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
                 <div class="bg-white rounded-lg shadow-lg w-full max-w-5xl p-6 relative modal-enter">
                     <!-- Tombol Close -->
-                    <button id="closeModal" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
-                    
+                    <button id="closeModal"
+                        class="absolute top-3 right-3 text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+
                     <h2 class="text-xl font-bold mb-4">Tambah Tulisan</h2>
-                    
+
                     <form class="space-y-4">
                         <!-- Upload Gambar -->
                         <div>
@@ -67,7 +92,8 @@
                             <div id="previewContainer" class="flex space-x-2 mb-2 overflow-x-auto"></div>
 
                             <!-- Input file -->
-                            <input id="imageInput" type="file" multiple accept="image/*" class="w-full border rounded p-2">
+                            <input id="imageInput" type="file" multiple accept="image/*"
+                                class="w-full border rounded p-2">
                         </div>
 
                         <!-- Judul -->
@@ -90,7 +116,9 @@
 
                         <!-- Tombol Submit -->
                         <div class="flex justify-end">
-                            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tambah Tulisan</button>
+                            <button type="submit"
+                                class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tambah
+                                Tulisan</button>
                         </div>
                     </form>
                 </div>
@@ -112,15 +140,19 @@
             <div class="w-1/2"></div>
             <div class="relative w-1/2 flex justify-end">
                 <!-- Tombol avatar -->
-                <button id="avatarBtn" class="relative z-10 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outline-none">
+                <button id="avatarBtn"
+                    class="relative z-10 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outline-none">
                     <img src="https://placehold.co/100" alt="User Avatar">
                 </button>
 
                 <!-- Dropdown -->
                 <div id="dropdownMenu" class="absolute right-0 mt-14 w-40 bg-white rounded-lg shadow-lg py-2 hidden">
-                    <a href="/logout" class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100">
-                        <i class="fas fa-sign-out-alt mr-2 text-red-500"></i> Log Out
-                    </a>
+                    <form action="{{ route('admin.logout') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100">
+                            <i class="fas fa-sign-out-alt mr-2 text-red-500"></i> Log Out
+                        </a>
+                    </form>
                 </div>
             </div>
         </header>
@@ -134,164 +166,144 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
                         <!-- Card 1 -->
                         <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                            <img src="https://placehold.co/1200" alt="Thumbnail"
-                                class="w-full h-48 object-cover">
+                            <img src="https://placehold.co/1200" alt="Thumbnail" class="w-full h-48 object-cover">
 
                             <div class="p-4">
                                 <h2 class="text-lg font-semibold text-gray-800 mb-2 truncate">
-                                Judul Card 1
+                                    Judul Card 1
                                 </h2>
                                 <p class="text-gray-600 text-sm line-clamp-3">
-                                Deskripsi singkat card ini. Akan terpotong otomatis jika lebih dari tiga baris.
+                                    Deskripsi singkat card ini. Akan terpotong otomatis jika lebih dari tiga baris.
                                 </p>
                                 <p class="text-xs text-gray-400 mt-3">18 September 2025</p>
                             </div>
 
                             <div class="p-4 border-t flex items-center gap-2">
                                 <button class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600 editBtn"
-                                        data-id="1"
-                                        data-title="Judul Card 1"
-                                        data-desc="Deskripsi card 1"
-                                        data-date="2025-09-18"
-                                        data-image="https://via.placeholder.com/400x200">
-                                Edit
+                                    data-id="1" data-title="Judul Card 1" data-desc="Deskripsi card 1"
+                                    data-date="2025-09-18" data-image="https://via.placeholder.com/400x200">
+                                    Edit
                                 </button>
 
                                 <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 deleteBtn"
-                                        data-id="1">
-                                Delete
-                                </button>
-                            </div>
-                        </div>
-                        
-                        <!-- Card 1 -->
-                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                            <img src="https://placehold.co/1200" alt="Thumbnail"
-                                class="w-full h-48 object-cover">
-
-                            <div class="p-4">
-                                <h2 class="text-lg font-semibold text-gray-800 mb-2 truncate">
-                                Judul Card 1
-                                </h2>
-                                <p class="text-gray-600 text-sm line-clamp-3">
-                                Deskripsi singkat card ini. Akan terpotong otomatis jika lebih dari tiga baris.
-                                </p>
-                                <p class="text-xs text-gray-400 mt-3">18 September 2025</p>
-                            </div>
-
-                            <div class="p-4 border-t flex items-center gap-2">
-                                <button class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600 editBtn"
-                                        data-id="1"
-                                        data-title="Judul Card 1"
-                                        data-desc="Deskripsi card 1"
-                                        data-date="2025-09-18"
-                                        data-image="https://via.placeholder.com/400x200">
-                                Edit
-                                </button>
-
-                                <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 deleteBtn"
-                                        data-id="1">
-                                Delete
+                                    data-id="1">
+                                    Delete
                                 </button>
                             </div>
                         </div>
 
                         <!-- Card 1 -->
                         <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                            <img src="https://placehold.co/1200" alt="Thumbnail"
-                                class="w-full h-48 object-cover">
+                            <img src="https://placehold.co/1200" alt="Thumbnail" class="w-full h-48 object-cover">
 
                             <div class="p-4">
                                 <h2 class="text-lg font-semibold text-gray-800 mb-2 truncate">
-                                Judul Card 1
+                                    Judul Card 1
                                 </h2>
                                 <p class="text-gray-600 text-sm line-clamp-3">
-                                Deskripsi singkat card ini. Akan terpotong otomatis jika lebih dari tiga baris.
+                                    Deskripsi singkat card ini. Akan terpotong otomatis jika lebih dari tiga baris.
                                 </p>
                                 <p class="text-xs text-gray-400 mt-3">18 September 2025</p>
                             </div>
 
                             <div class="p-4 border-t flex items-center gap-2">
                                 <button class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600 editBtn"
-                                        data-id="1"
-                                        data-title="Judul Card 1"
-                                        data-desc="Deskripsi card 1"
-                                        data-date="2025-09-18"
-                                        data-image="https://via.placeholder.com/400x200">
-                                Edit
+                                    data-id="1" data-title="Judul Card 1" data-desc="Deskripsi card 1"
+                                    data-date="2025-09-18" data-image="https://via.placeholder.com/400x200">
+                                    Edit
                                 </button>
 
                                 <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 deleteBtn"
-                                        data-id="1">
-                                Delete
+                                    data-id="1">
+                                    Delete
                                 </button>
                             </div>
                         </div>
 
                         <!-- Card 1 -->
                         <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                            <img src="https://placehold.co/1200" alt="Thumbnail"
-                                class="w-full h-48 object-cover">
+                            <img src="https://placehold.co/1200" alt="Thumbnail" class="w-full h-48 object-cover">
 
                             <div class="p-4">
                                 <h2 class="text-lg font-semibold text-gray-800 mb-2 truncate">
-                                Judul Card 1
+                                    Judul Card 1
                                 </h2>
                                 <p class="text-gray-600 text-sm line-clamp-3">
-                                Deskripsi singkat card ini. Akan terpotong otomatis jika lebih dari tiga baris.
+                                    Deskripsi singkat card ini. Akan terpotong otomatis jika lebih dari tiga baris.
                                 </p>
                                 <p class="text-xs text-gray-400 mt-3">18 September 2025</p>
                             </div>
 
                             <div class="p-4 border-t flex items-center gap-2">
                                 <button class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600 editBtn"
-                                        data-id="1"
-                                        data-title="Judul Card 1"
-                                        data-desc="Deskripsi card 1"
-                                        data-date="2025-09-18"
-                                        data-image="https://via.placeholder.com/400x200">
-                                Edit
+                                    data-id="1" data-title="Judul Card 1" data-desc="Deskripsi card 1"
+                                    data-date="2025-09-18" data-image="https://via.placeholder.com/400x200">
+                                    Edit
                                 </button>
 
                                 <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 deleteBtn"
-                                        data-id="1">
-                                Delete
+                                    data-id="1">
+                                    Delete
                                 </button>
                             </div>
                         </div>
 
                         <!-- Card 1 -->
                         <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                            <img src="https://placehold.co/1200" alt="Thumbnail"
-                                class="w-full h-48 object-cover">
+                            <img src="https://placehold.co/1200" alt="Thumbnail" class="w-full h-48 object-cover">
 
                             <div class="p-4">
                                 <h2 class="text-lg font-semibold text-gray-800 mb-2 truncate">
-                                Judul Card 1
+                                    Judul Card 1
                                 </h2>
                                 <p class="text-gray-600 text-sm line-clamp-3">
-                                Deskripsi singkat card ini. Akan terpotong otomatis jika lebih dari tiga baris.
+                                    Deskripsi singkat card ini. Akan terpotong otomatis jika lebih dari tiga baris.
                                 </p>
                                 <p class="text-xs text-gray-400 mt-3">18 September 2025</p>
                             </div>
 
                             <div class="p-4 border-t flex items-center gap-2">
                                 <button class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600 editBtn"
-                                        data-id="1"
-                                        data-title="Judul Card 1"
-                                        data-desc="Deskripsi card 1"
-                                        data-date="2025-09-18"
-                                        data-image="https://via.placeholder.com/400x200">
-                                Edit
+                                    data-id="1" data-title="Judul Card 1" data-desc="Deskripsi card 1"
+                                    data-date="2025-09-18" data-image="https://via.placeholder.com/400x200">
+                                    Edit
                                 </button>
 
                                 <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 deleteBtn"
-                                        data-id="1">
-                                Delete
+                                    data-id="1">
+                                    Delete
                                 </button>
                             </div>
                         </div>
-                </div>
+
+                        <!-- Card 1 -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                            <img src="https://placehold.co/1200" alt="Thumbnail" class="w-full h-48 object-cover">
+
+                            <div class="p-4">
+                                <h2 class="text-lg font-semibold text-gray-800 mb-2 truncate">
+                                    Judul Card 1
+                                </h2>
+                                <p class="text-gray-600 text-sm line-clamp-3">
+                                    Deskripsi singkat card ini. Akan terpotong otomatis jika lebih dari tiga baris.
+                                </p>
+                                <p class="text-xs text-gray-400 mt-3">18 September 2025</p>
+                            </div>
+
+                            <div class="p-4 border-t flex items-center gap-2">
+                                <button class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600 editBtn"
+                                    data-id="1" data-title="Judul Card 1" data-desc="Deskripsi card 1"
+                                    data-date="2025-09-18" data-image="https://via.placeholder.com/400x200">
+                                    Edit
+                                </button>
+
+                                <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 deleteBtn"
+                                    data-id="1">
+                                    Delete
+                                </button>
+                            </div>
+                        </div>
+                    </div>
             </main>
         </div>
     </div>
@@ -352,60 +364,62 @@
         const submitBtn = form.querySelector('button[type="submit"]');
 
         function showModal() {
-        modal.classList.remove("hidden");
-        modal.classList.add("flex");
-        requestAnimationFrame(() => {
-            modalContent.classList.remove("modal-enter");
-            modalContent.classList.add("modal-enter-active");
-        });
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+            requestAnimationFrame(() => {
+                modalContent.classList.remove("modal-enter");
+                modalContent.classList.add("modal-enter-active");
+            });
         }
 
         function hideModal() {
-        modalContent.classList.remove("modal-enter-active");
-        modalContent.classList.add("modal-exit-active");
-        setTimeout(() => {
-            modal.classList.add("hidden");
-            modal.classList.remove("flex");
-            modalContent.classList.remove("modal-exit-active");
-            modalContent.classList.add("modal-enter");
-        }, 200);
+            modalContent.classList.remove("modal-enter-active");
+            modalContent.classList.add("modal-exit-active");
+            setTimeout(() => {
+                modal.classList.add("hidden");
+                modal.classList.remove("flex");
+                modalContent.classList.remove("modal-exit-active");
+                modalContent.classList.add("modal-enter");
+            }, 200);
         }
 
         closeModal.addEventListener("click", hideModal);
         modal.addEventListener("click", (e) => {
-        if (e.target === modal) hideModal();
+            if (e.target === modal) hideModal();
         });
 
         // Event untuk tombol Edit
         document.querySelectorAll(".editBtn").forEach(btn => {
-        btn.addEventListener("click", () => {
-            // Ubah judul modal
-            modalTitle.textContent = "Edit Tulisan";
+            btn.addEventListener("click", () => {
+                // Ubah judul modal
+                modalTitle.textContent = "Edit Tulisan";
 
-            // Prefill form dari data-* attribute
-            titleInput.value = btn.dataset.title;
-            descInput.value = btn.dataset.desc;
-            dateInput.value = btn.dataset.date;
+                // Prefill form dari data-* attribute
+                titleInput.value = btn.dataset.title;
+                descInput.value = btn.dataset.desc;
+                dateInput.value = btn.dataset.date;
 
-            // (Opsional) preview gambar lama
-            const previewContainer = document.getElementById("previewContainer");
-            previewContainer.innerHTML = `<img src="${btn.dataset.image}" class="h-20 w-20 object-cover rounded">`;
+                // (Opsional) preview gambar lama
+                const previewContainer = document.getElementById("previewContainer");
+                previewContainer.innerHTML =
+                    `<img src="${btn.dataset.image}" class="h-20 w-20 object-cover rounded">`;
 
-            // Ubah teks tombol submit
-            submitBtn.textContent = "Simpan Perubahan";
+                // Ubah teks tombol submit
+                submitBtn.textContent = "Simpan Perubahan";
 
-            showModal();
-        });
+                showModal();
+            });
         });
 
         // Event untuk tombol Tambah (misalnya id="openModal")
         document.getElementById("openModal").addEventListener("click", () => {
-        modalTitle.textContent = "Tambah Tulisan";
-        form.reset();
-        document.getElementById("previewContainer").innerHTML = "";
-        submitBtn.textContent = "Tambah Tulisan";
-        showModal();
+            modalTitle.textContent = "Tambah Tulisan";
+            form.reset();
+            document.getElementById("previewContainer").innerHTML = "";
+            submitBtn.textContent = "Tambah Tulisan";
+            showModal();
         });
     </script>
 </body>
+
 </html>
