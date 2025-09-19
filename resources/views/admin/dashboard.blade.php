@@ -167,145 +167,41 @@
                 <h3 class="text-black">Karya Tulis saya</h3>
                 <div class="flex flex-wrap mt-6 mb-6">
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
-                        <!-- Card 1 -->
-                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                            <img src="https://placehold.co/1200" alt="Thumbnail" class="w-full h-48 object-cover">
+                        <!-- Card -->
+                        @foreach ($posts as $post)
+                            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                                @php
+                                    $firstImage = $images->where('post_id', $post->id)->first();
+                                @endphp
+                                <img src="{{ asset('storage/' . $firstImage->path ?? 'image/placeholder.png') }}"
+                                    alt="Thumbnail" class="w-full h-48 object-cover">
 
-                            <div class="p-4">
-                                <h2 class="text-lg font-semibold text-gray-800 mb-2 truncate">
-                                    Judul Card 1
-                                </h2>
-                                <p class="text-gray-600 text-sm line-clamp-3">
-                                    Deskripsi singkat card ini. Akan terpotong otomatis jika lebih dari tiga baris.
-                                </p>
-                                <p class="text-xs text-gray-400 mt-3">18 September 2025</p>
+                                <div class="p-4">
+                                    <h2 class="text-lg font-semibold text-gray-800 mb-2 truncate">
+                                        {{ $post->title }}
+                                    </h2>
+                                    <p class="text-gray-600 text-sm line-clamp-3">
+                                        {{ $post->content }}
+                                    </p>
+                                    <p class="text-xs text-gray-400 mt-3">{{ $post->date }}</p>
+                                </div>
+
+                                <div class="p-4 border-t flex items-center gap-2">
+                                    <button
+                                        class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600 editBtn"
+                                        data-id="1" data-title="Judul Card 1" data-desc="Deskripsi card 1"
+                                        data-date="2025-09-18" data-image="https://via.placeholder.com/400x200">
+                                        Edit
+                                    </button>
+
+                                    <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 deleteBtn"
+                                        data-id="1">
+                                        Delete
+                                    </button>
+                                </div>
                             </div>
+                        @endforeach
 
-                            <div class="p-4 border-t flex items-center gap-2">
-                                <button class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600 editBtn"
-                                    data-id="1" data-title="Judul Card 1" data-desc="Deskripsi card 1"
-                                    data-date="2025-09-18" data-image="https://via.placeholder.com/400x200">
-                                    Edit
-                                </button>
-
-                                <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 deleteBtn"
-                                    data-id="1">
-                                    Delete
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Card 1 -->
-                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                            <img src="https://placehold.co/1200" alt="Thumbnail" class="w-full h-48 object-cover">
-
-                            <div class="p-4">
-                                <h2 class="text-lg font-semibold text-gray-800 mb-2 truncate">
-                                    Judul Card 1
-                                </h2>
-                                <p class="text-gray-600 text-sm line-clamp-3">
-                                    Deskripsi singkat card ini. Akan terpotong otomatis jika lebih dari tiga baris.
-                                </p>
-                                <p class="text-xs text-gray-400 mt-3">18 September 2025</p>
-                            </div>
-
-                            <div class="p-4 border-t flex items-center gap-2">
-                                <button class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600 editBtn"
-                                    data-id="1" data-title="Judul Card 1" data-desc="Deskripsi card 1"
-                                    data-date="2025-09-18" data-image="https://via.placeholder.com/400x200">
-                                    Edit
-                                </button>
-
-                                <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 deleteBtn"
-                                    data-id="1">
-                                    Delete
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Card 1 -->
-                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                            <img src="https://placehold.co/1200" alt="Thumbnail" class="w-full h-48 object-cover">
-
-                            <div class="p-4">
-                                <h2 class="text-lg font-semibold text-gray-800 mb-2 truncate">
-                                    Judul Card 1
-                                </h2>
-                                <p class="text-gray-600 text-sm line-clamp-3">
-                                    Deskripsi singkat card ini. Akan terpotong otomatis jika lebih dari tiga baris.
-                                </p>
-                                <p class="text-xs text-gray-400 mt-3">18 September 2025</p>
-                            </div>
-
-                            <div class="p-4 border-t flex items-center gap-2">
-                                <button class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600 editBtn"
-                                    data-id="1" data-title="Judul Card 1" data-desc="Deskripsi card 1"
-                                    data-date="2025-09-18" data-image="https://via.placeholder.com/400x200">
-                                    Edit
-                                </button>
-
-                                <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 deleteBtn"
-                                    data-id="1">
-                                    Delete
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Card 1 -->
-                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                            <img src="https://placehold.co/1200" alt="Thumbnail" class="w-full h-48 object-cover">
-
-                            <div class="p-4">
-                                <h2 class="text-lg font-semibold text-gray-800 mb-2 truncate">
-                                    Judul Card 1
-                                </h2>
-                                <p class="text-gray-600 text-sm line-clamp-3">
-                                    Deskripsi singkat card ini. Akan terpotong otomatis jika lebih dari tiga baris.
-                                </p>
-                                <p class="text-xs text-gray-400 mt-3">18 September 2025</p>
-                            </div>
-
-                            <div class="p-4 border-t flex items-center gap-2">
-                                <button class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600 editBtn"
-                                    data-id="1" data-title="Judul Card 1" data-desc="Deskripsi card 1"
-                                    data-date="2025-09-18" data-image="https://via.placeholder.com/400x200">
-                                    Edit
-                                </button>
-
-                                <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 deleteBtn"
-                                    data-id="1">
-                                    Delete
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Card 1 -->
-                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                            <img src="https://placehold.co/1200" alt="Thumbnail" class="w-full h-48 object-cover">
-
-                            <div class="p-4">
-                                <h2 class="text-lg font-semibold text-gray-800 mb-2 truncate">
-                                    Judul Card 1
-                                </h2>
-                                <p class="text-gray-600 text-sm line-clamp-3">
-                                    Deskripsi singkat card ini. Akan terpotong otomatis jika lebih dari tiga baris.
-                                </p>
-                                <p class="text-xs text-gray-400 mt-3">18 September 2025</p>
-                            </div>
-
-                            <div class="p-4 border-t flex items-center gap-2">
-                                <button class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600 editBtn"
-                                    data-id="1" data-title="Judul Card 1" data-desc="Deskripsi card 1"
-                                    data-date="2025-09-18" data-image="https://via.placeholder.com/400x200">
-                                    Edit
-                                </button>
-
-                                <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 deleteBtn"
-                                    data-id="1">
-                                    Delete
-                                </button>
-                            </div>
-                        </div>
                     </div>
             </main>
         </div>

@@ -20,9 +20,7 @@ Route::get('/login', function () {
     return view('admin.login');
 })->name('login');
 
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-})->name('dashboard');
+Route::get('/dashboard', [PostController::class, 'dashboard'])->name('dashboard');
 
 Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
 Route::post('/posts', [PostController::class, 'store'])->name('store');

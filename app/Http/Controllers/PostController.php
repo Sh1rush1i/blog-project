@@ -76,4 +76,11 @@ class PostController extends Controller
         return view('tulisan', compact('posts'));
     }
 
+    public function dashboard()
+    {
+        $posts = Post::orderBy('created_at', 'desc')->get();
+        $images = Image::all();
+        return view('admin.dashboard', compact('posts', 'images'));
+    }
+
 }
