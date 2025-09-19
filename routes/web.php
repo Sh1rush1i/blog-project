@@ -33,3 +33,6 @@ Route::get('/{slug}-{stamp}', [PostController::class, 'show'])
 
 Route::post('/login', [AuthController::class, 'login'])->name('admin.login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('admin.logout');
+
+Route::delete('/posts', [PostController::class, 'destroy'])->name('posts.destroy');
+Route::put('/posts', [PostController::class, 'update'])->name('posts.update');
