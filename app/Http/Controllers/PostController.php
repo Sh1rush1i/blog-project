@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Image;
 use App\Models\Post;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -26,19 +27,34 @@ class PostController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required|string',
-            'picture' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:10240', // Max 10MB
+            'image' => 'nullable|array',
+            'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+            'date' => 'nullable|date',
         ]);
 
-        if ($request->hasFile('picture')) {
-            $path = $request->file('picture')->store('picture', 'public');
-            $validated['picture'] = $path;
+        $post = new Post();
+        $post->title = $validated['title'];
+        $post->content = $validated['content'];
+        $post->date = isset($validated['date']) ? Carbon::parse($validated['date']) : null;
+        $post->slug = \Str::slug($validated['title']) . '-' . now()->format('YmdHis');
+        $post->save();
+
+        if ($request->hasFile('image')) {
+            foreach ($request->file('image') as $file) {
+                $path = $file->store('image', 'public');
+                $image = new Image();
+                $image->post_id = $post->id;
+                $image->path = $path;
+                $image->save();
+            }
         } else {
-            // Use a default placeholder image path
-            $validated['picture'] = 'picture/placeholder.png';
+            $image = new Image();
+            $image->post_id = $post->id;
+            $image->path = 'image/placeholder.png';
+            $image->save();
         }
 
-        Post::create($validated);
-        return redirect()->route('index')->with('success', 'Post created successfully.');
+        return redirect()->route('dashboard')->with('success', 'Post created successfully.');
     }
 
     public function show($slug, $stamp)

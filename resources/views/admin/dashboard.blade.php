@@ -83,7 +83,8 @@
 
                     <h2 class="text-xl font-bold mb-4">Tambah Tulisan</h2>
 
-                    <form class="space-y-4">
+                    <form class="space-y-4" action="{{ route('store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <!-- Upload Gambar -->
                         <div>
                             <label class="block font-medium mb-1">Gambar</label>
@@ -92,26 +93,28 @@
                             <div id="previewContainer" class="flex space-x-2 mb-2 overflow-x-auto"></div>
 
                             <!-- Input file -->
-                            <input id="imageInput" type="file" multiple accept="image/*"
+                            <input name="image[]" id="image" type="file" multiple accept="image/*"
                                 class="w-full border rounded p-2">
                         </div>
 
                         <!-- Judul -->
                         <div>
                             <label class="block font-medium mb-1">Judul</label>
-                            <input type="text" class="w-full border rounded p-2" placeholder="Masukkan judul">
+                            <input type="text" id="title" name="title" class="w-full border rounded p-2"
+                                placeholder="Masukkan judul">
                         </div>
 
                         <!-- Tulisan -->
                         <div>
                             <label class="block font-medium mb-1">Tulisan</label>
-                            <textarea class="w-full border rounded p-2" rows="4" placeholder="Tulis isi di sini..."></textarea>
+                            <textarea id="content" name="content" class="w-full border rounded p-2" rows="4"
+                                placeholder="Tulis isi di sini..."></textarea>
                         </div>
 
                         <!-- Tanggal -->
                         <div>
                             <label class="block font-medium mb-1">Tanggal</label>
-                            <input type="date" class="w-full border rounded p-2">
+                            <input id="date" name="date" type="date" class="w-full border rounded p-2">
                         </div>
 
                         <!-- Tombol Submit -->
@@ -151,7 +154,7 @@
                         @csrf
                         <button type="submit" class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100">
                             <i class="fas fa-sign-out-alt mr-2 text-red-500"></i> Log Out
-                        </a>
+                            </a>
                     </form>
                 </div>
             </div>
