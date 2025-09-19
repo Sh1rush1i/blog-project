@@ -39,22 +39,16 @@
             </div>
             <div class="artikel-tanggal">
                 <i class="fa-solid fa-calendar"></i>
-                <p>{{ $post->created_at->format('d F Y') }}</p>
+                <p>{{ date('j F Y', strtotime($post->date)) }}</p>
             </div>
         </div>
         <div class="carousel reveal">
             <div class="carousel-inner">
-
-                <div class="carousel-item active">
-                    <img src="https://placehold.co/1366x480" alt="Gambar Artikel" />
-                </div>
-
-                <div class="carousel-item">
-                    <img src="https://placehold.co/1366x480" alt="Gambar Artikel" />
-                </div>
-                <div class="carousel-item">
-                    <img src="https://placehold.co/1366x480" alt="Gambar Artikel" />
-                </div>
+                @foreach ($images->where('post_id', $post->id) as $key => $image)
+                    <div class="carousel-item{{ $key === 0 ? ' active' : '' }}">
+                        <img src="{{ asset('storage/' . $image->path) }}" alt="Gambar Artikel" />
+                    </div>
+                @endforeach
             </div>
 
             <!-- Navigator -->
@@ -105,10 +99,13 @@
                 @else
                     @foreach ($other as $item)
                         <div class="artikel-col reveal">
-                            <img src="{{ asset('storage/' . $item->picture) }}" alt="Thumbnail Artikel">
+                            @php
+                                $firstImage = $images->firstWhere('post_id', $item->id);
+                            @endphp
+                            <img src="{{ asset('storage/' . $firstImage->path) }}" alt="Thumbnail Artikel">
                             <div class="artikel-tanggal">
                                 <i class="fa-solid fa-calendar"></i>
-                                <p>{{ $item->created_at->format('d F Y') }}</p>
+                                <p>{{ date('j F Y', strtotime($item->date)) }}</p>
                             </div>
                             <h3>{{ $item->title }}</h3>
                         </div>

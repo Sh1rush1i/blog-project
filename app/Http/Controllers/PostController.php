@@ -14,12 +14,8 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::all();
-        return view('index', compact('posts'));
-    }
-
-    public function create()
-    {
-        return view('create');
+        $images = Image::all();
+        return view('index', compact('posts', 'images'));
     }
 
     public function store(Request $request)
@@ -68,13 +64,16 @@ class PostController extends Controller
             ->limit(3)
             ->get();
 
-        return view('details', compact('post', 'other'));
+        $images = Image::all();
+
+        return view('details', compact('post', 'other', 'images'));
     }
 
     public function showAll()
     {
         $posts = Post::orderBy('created_at', 'desc')->get();
-        return view('tulisan', compact('posts'));
+        $images = Image::all();
+        return view('tulisan', compact('posts', 'images'));
     }
 
     public function dashboard()

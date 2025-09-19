@@ -72,13 +72,15 @@
         <p>Berikut adalah beberapa artikel terbaru dari saya.</p>
         @if ($posts->isNotEmpty())
             <div class="artikel-card">
-                <img src="{{ asset('storage/' . $posts->sortByDesc('created_at')->first()->picture) }}"
-                    alt="Artikel Terbaru" />
+                @php
+                    $firstImage = $images->firstWhere('post_id', $posts->sortByDesc('created_at')->first()->id);
+                @endphp
+                <img src="{{ asset('storage/' . $firstImage->path) }}" alt="Artikel Terbaru" />
                 <div class="gradient-overlay"></div>
                 <div class="artikel-overlay">
                     <div class="artikel-tanggal">
                         <i class="fa-solid fa-calendar"></i>
-                        <p>{{ $posts->sortByDesc('created_at')->first()->created_at->format('d F Y') }}</p>
+                        <p>{{ date('j F Y', strtotime($posts->sortByDesc('created_at')->first()->date)) }}</p>
                     </div>
                     <h1>{{ $posts->sortByDesc('created_at')->first()->title }}</h1>
                     <p style="white-space: pre-wrap">{{ $posts->sortByDesc('created_at')->first()->content }}</p>
@@ -99,10 +101,13 @@
             <div class="artikel-row">
                 @foreach ($posts->sortByDesc('created_at')->take(3) as $post)
                     <div class="artikel-col">
-                        <img src="{{ asset('storage/' . $post->picture) }}" />
+                        @php
+                            $firstImage = $images->firstWhere('post_id', $post->id);
+                        @endphp
+                        <img src="{{ asset('storage/' . $firstImage->path) }}" />
                         <div class="artikel-tanggal">
                             <i class="fa-solid fa-calendar"></i>
-                            <p>{{ $post->created_at->format('d F Y') }}</p>
+                            <p>{{ date('j F Y', strtotime($post->date)) }}</p>
                         </div>
                         <h3>{{ $post->title }}</h3>
                         <p style="white-space: pre-wrap">

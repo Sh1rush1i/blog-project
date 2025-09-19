@@ -35,12 +35,15 @@
         <h1>Tulisan Terbaru</h1>
         <p>Berikut adalah beberapa artikel terbaru dari saya.</p>
         <div class="artikel-card">
-            <img src="{{ asset('storage/' . $posts->first()->picture) }}" alt="Artikel Terbaru" />
+            @php
+                $firstImage = $images->firstWhere('post_id', $posts->first()->id);
+            @endphp
+            <img src="{{ asset('storage/' . $firstImage->path) }}" alt="Artikel Terbaru" />
             <div class="gradient-overlay"></div>
             <div class="artikel-overlay">
                 <div class="artikel-tanggal">
                     <i class="fa-solid fa-calendar"></i>
-                    <p>{{ $posts->first()->created_at->format('d F Y') }}</p>
+                    <p>{{ date('j F Y', strtotime($posts->first()->date)) }}</p>
                 </div>
                 <h1>{{ $posts->first()->title }}</h1>
                 <p>{{ $posts->first()->content }}</p>
@@ -55,11 +58,14 @@
         <div class="artikel-row">
             @if ($posts->count() > 1)
                 @foreach ($posts->skip(1) as $post)
+                    @php
+                        $firstImage = $images->firstWhere('post_id', $post->id);
+                    @endphp
                     <div class="artikel-col">
-                        <img src="{{ asset('storage/' . $post->picture) }}" />
+                        <img src="{{ asset('storage/' . $firstImage->path) }}" />
                         <div class="artikel-tanggal">
                             <i class="fa-solid fa-calendar"></i>
-                            <p>{{ $post->created_at->format('d F Y') }}</p>
+                            <p>{{ date('j F Y', strtotime($post->date)) }}</p>
                         </div>
                         <h3>{{ $post->title }}</h3>
                         <p>

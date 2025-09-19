@@ -183,19 +183,20 @@
                                     <p class="text-gray-600 text-sm line-clamp-3">
                                         {{ $post->content }}
                                     </p>
-                                    <p class="text-xs text-gray-400 mt-3">{{ $post->date }}</p>
+                                    <p class="text-xs text-gray-400 mt-3">{{ date('j F Y', strtotime($post->date)) }}</p>
                                 </div>
 
                                 <div class="p-4 border-t flex items-center gap-2">
                                     <button
                                         class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600 editBtn"
-                                        data-id="1" data-title="Judul Card 1" data-desc="Deskripsi card 1"
-                                        data-date="2025-09-18" data-image="https://via.placeholder.com/400x200">
+                                        data-id="{{ $post->id }}" data-title="{{ $post->title }}"
+                                        data-desc="{{ $post->content }}" data-date="{{ $post->date }}"
+                                        data-image="{{ asset('storage/' . $firstImage->path ?? 'image/placeholder.png') }}">
                                         Edit
                                     </button>
 
                                     <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 deleteBtn"
-                                        data-id="1">
+                                        data-id="{{ $post->id }}">
                                         Delete
                                     </button>
                                 </div>
