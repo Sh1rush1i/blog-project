@@ -20,7 +20,8 @@
                 &times;
             </button>
             <h2 class="text-xl font-bold mb-4">Tambah Tulisan</h2>
-            <form class="space-y-4">
+            <form class="space-y-4" action="{{ route('store') }}" method="POST" enctype="multipart/form-data">
+                @csrf
                 <div>
                     <label class="block font-medium mb-1">Gambar</label>
                     <div id="previewContainer" class="flex space-x-2 mb-2 overflow-x-auto"></div>
