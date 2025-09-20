@@ -1,4 +1,55 @@
-/* Reset hanya di halaman admin */
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap");
+
+.font-family-poppins {
+    font-family: "Poppins", sans-serif;
+}
+.bg-sidebar {
+    background: #3d68ff;
+}
+.cta-btn {
+    color: #3d68ff;
+}
+.active-nav-link {
+    background: #1947ee;
+}
+.nav-item:hover {
+    background: #1947ee;
+}
+.account-link:hover {
+    background: #3d68ff;
+}
+/* Animasi modal */
+.modal-enter {
+    opacity: 0;
+    transform: scale(0.95);
+}
+.modal-enter-active {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+}
+.modal-exit {
+    opacity: 1;
+    transform: scale(1);
+}
+.modal-exit-active {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.card-desc {
+    display: -webkit-box;
+    line-clamp: 3;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
 .admin-page *,
 .admin-page *::before,
 .admin-page *::after {
