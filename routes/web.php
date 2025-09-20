@@ -17,10 +17,18 @@ Route::get('/kontak', function () {
 })->name('kontak');
 
 Route::get('/login', function () {
+    if (auth()->check()) {
+        return redirect()->route('dashboard');
+    }
     return view('admin.login');
 })->name('login');
 
-Route::get('/dashboard', [PostController::class, 'dashboard'])->name('dashboard');
+Route::get('/dashboard', function () {
+    if (auth()->check()) {
+        return app(PostController::class)->dashboard();
+    }
+    return redirect()->route('login');
+})->name('dashboard');
 
 Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
 Route::post('/posts', [PostController::class, 'store'])->name('store');
@@ -34,5 +42,7 @@ Route::get('/{slug}-{stamp}', [PostController::class, 'show'])
 Route::post('/login', [AuthController::class, 'login'])->name('admin.login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('admin.logout');
 
-Route::delete('/posts', [PostController::class, 'destroy'])->name('posts.destroy');
-Route::put('/posts', [PostController::class, 'update'])->name('posts.update');
+Route::middleware('auth')->group(function () {
+    Route::delete('/posts', [PostController::class, 'destroy'])->name('posts.destroy');
+    Route::put('/posts', [PostController::class, 'update'])->name('posts.update');
+});
