@@ -72,6 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const card = e.currentTarget.closest(".card");
             if (!card) return;
 
+            const id = card.querySelector('input[name="post_id"]')?.value || "";
             const title =
                 card.querySelector(".card-title")?.textContent.trim() || "";
             const desc =
@@ -84,6 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 ? new Date(dateText).toISOString().split("T")[0]
                 : "";
 
+            document.getElementById("editPostId").value = id;
             document.getElementById("editTitleInput").value = title;
             document.getElementById("editDescInput").value = desc;
             document.getElementById("editDateInput").value = isoDate;

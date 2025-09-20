@@ -15,31 +15,33 @@
     <!-- Modal Tambah Tulisan -->
     <div id="modalTambah" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
         <div class="bg-white rounded-lg shadow-lg w-full max-w-5xl p-6 relative modal-enter">
-            <button id="closeTambahModal" class="absolute top-3 right-3 w-8 h-8 flex items-center justify-center bg-red-500 text-white rounded-full hover:bg-red-600 focus:outline-none">
+            <button id="closeTambahModal"
+                class="absolute top-3 right-3 w-8 h-8 flex items-center justify-center bg-red-500 text-white rounded-full hover:bg-red-600 focus:outline-none">
                 &times;
             </button>
             <h2 class="text-xl font-bold mb-4">Tambah Tulisan</h2>
             <form class="space-y-4">
-            <div>
-                <label class="block font-medium mb-1">Gambar</label>
-                <div id="previewContainer" class="flex space-x-2 mb-2 overflow-x-auto"></div>
-                <input id="imageInput" type="file" multiple accept="image/*" class="w-full border rounded p-2" />
-            </div>
-            <div>
-                <label class="block font-medium mb-1">Judul</label>
-                <input type="text" class="w-full border rounded p-2" placeholder="Masukkan judul" />
-            </div>
-            <div>
-                <label class="block font-medium mb-1">Tulisan</label>
-                <textarea class="w-full border rounded p-2" rows="4" placeholder="Tulis isi di sini..."></textarea>
-            </div>
-            <div>
-                <label class="block font-medium mb-1">Tanggal</label>
-                <input type="date" class="w-full border rounded p-2" />
-            </div>
-            <div class="flex justify-end">
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tambah Tulisan</button>
-            </div>
+                <div>
+                    <label class="block font-medium mb-1">Gambar</label>
+                    <div id="previewContainer" class="flex space-x-2 mb-2 overflow-x-auto"></div>
+                    <input id="imageInput" type="file" multiple accept="image/*" class="w-full border rounded p-2" />
+                </div>
+                <div>
+                    <label class="block font-medium mb-1">Judul</label>
+                    <input type="text" class="w-full border rounded p-2" placeholder="Masukkan judul" />
+                </div>
+                <div>
+                    <label class="block font-medium mb-1">Tulisan</label>
+                    <textarea class="w-full border rounded p-2" rows="4" placeholder="Tulis isi di sini..."></textarea>
+                </div>
+                <div>
+                    <label class="block font-medium mb-1">Tanggal</label>
+                    <input type="date" class="w-full border rounded p-2" />
+                </div>
+                <div class="flex justify-end">
+                    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tambah
+                        Tulisan</button>
+                </div>
             </form>
         </div>
     </div>
@@ -47,31 +49,38 @@
     <!-- Modal Edit Tulisan -->
     <div id="modalEdit" class="hidden fixed inset-0 bg-black bg-opacity-50 items-center justify-center z-50">
         <div class="bg-white rounded-lg shadow-lg w-full max-w-5xl p-6 relative modal-enter">
-            <button id="closeEditModal" class="absolute top-3 right-3 w-8 h-8 flex items-center justify-center bg-red-500 text-white rounded-full hover:bg-red-600 focus:outline-none">
+            <button id="closeEditModal"
+                class="absolute top-3 right-3 w-8 h-8 flex items-center justify-center bg-red-500 text-white rounded-full hover:bg-red-600 focus:outline-none">
                 &times;
             </button>
             <h2 class="text-xl font-bold mb-4">Edit Tulisan</h2>
-            <form id="editForm" class="space-y-4">
-            <div>
-                <label class="block font-medium mb-1">Gambar</label>
-                <div id="editPreviewContainer" class="flex space-x-2 mb-2 overflow-x-auto"></div>
-                <input id="editImageInput" type="file" multiple accept="image/*" class="w-full border rounded p-2" />
-            </div>
-            <div>
-                <label class="block font-medium mb-1">Judul</label>
-                <input id="editTitleInput" name="title" type="text" class="w-full border rounded p-2" />
-            </div>
-            <div>
-                <label class="block font-medium mb-1">Tulisan</label>
-                <textarea id="editDescInput" name="description" class="w-full border rounded p-2" rows="4"></textarea>
-            </div>
-            <div>
-                <label class="block font-medium mb-1">Tanggal</label>
-                <input id="editDateInput" name="date" type="date" class="w-full border rounded p-2" />
-            </div>
-            <div class="flex justify-end">
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Simpan Perubahan</button>
-            </div>
+            <form id="editForm" class="space-y-4" method="POST" enctype="multipart/form-data"
+                action="{{ route('posts.update') }}">
+                @csrf
+                @method('PUT')
+                <div>
+                    <input type="hidden" id="editPostId" name="id" />
+                    <label class="block font-medium mb-1">Gambar</label>
+                    <div id="editPreviewContainer" class="flex space-x-2 mb-2 overflow-x-auto"></div>
+                    <input id="editImageInput" type="file" multiple accept="image/*"
+                        class="w-full border rounded p-2" />
+                </div>
+                <div>
+                    <label class="block font-medium mb-1">Judul</label>
+                    <input id="editTitleInput" name="title" type="text" class="w-full border rounded p-2" />
+                </div>
+                <div>
+                    <label class="block font-medium mb-1">Tulisan</label>
+                    <textarea id="editDescInput" name="content" class="w-full border rounded p-2" rows="4"></textarea>
+                </div>
+                <div>
+                    <label class="block font-medium mb-1">Tanggal</label>
+                    <input id="editDateInput" name="date" type="date" class="w-full border rounded p-2" />
+                </div>
+                <div class="flex justify-end">
+                    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Simpan
+                        Perubahan</button>
+                </div>
             </form>
         </div>
     </div>
@@ -88,7 +97,7 @@
             </button>
 
         </div>
-        
+
         <nav class="text-white text-base font-semibold pt-3">
             <a href="" class="flex items-center active-nav-link text-white py-4 pl-6 nav-item">
                 <i class="fa-solid fa-grip mr-3"></i>
@@ -128,33 +137,43 @@
                 <h3 class="text-black">Karya Tulis saya</h3>
                 <div class="flex flex-wrap mt-6 mb-6">
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
-                        
+
                         {{-- Tulisan 1 --}}
                         @foreach ($posts as $post)
-                        <div class="card bg-white rounded-lg shadow-md overflow-hidden">
-                            @php
+                            <div class="card bg-white rounded-lg shadow-md overflow-hidden">
+                                @php
                                     $firstImage = $images->where('post_id', $post->id)->first();
-                            @endphp
-                            <img src="{{ asset('storage/' . $firstImage->path ?? 'image/placeholder.png') }}" alt="Thumbnail" class="card-img w-full h-48 object-cover"/>
-                            <div class="p-4">
-                                <h2 class="card-title text-lg font-semibold text-gray-800 mb-2 truncate">
-                                {{ $post->title }}
-                                </h2>
-                                <p class="card-desc text-gray-600 text-sm line-clamp-3">
-                                {{ $post->content }}
-                                </p>
-                                <p class="card-date text-xs text-gray-400 mt-3">{{ $post->date }}</p>
-                            </div>
+                                @endphp
+                                <input type="hidden" name="post_id" value="{{ $post->id }}">
+                                <img src="{{ asset('storage/' . $firstImage->path ?? 'image/placeholder.png') }}"
+                                    alt="Thumbnail" class="card-img w-full h-48 object-cover" />
+                                <div class="p-4">
+                                    <h2 class="card-title text-lg font-semibold text-gray-800 mb-2 truncate">
+                                        {{ $post->title }}
+                                    </h2>
+                                    <p class="card-desc text-gray-600 text-sm line-clamp-3">
+                                        {{ $post->content }}
+                                    </p>
+                                    <p class="card-date text-xs text-gray-400 mt-3">{{ $post->date }}</p>
+                                </div>
 
-                            <div class="p-4 border-t flex items-center gap-2">
-                                <button class="editBtn bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
-                                Edit
-                                </button>
-                                <button class="deleteBtn bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">
-                                Delete
-                                </button>
+                                <div class="p-4 border-t flex items-center gap-2">
+                                    <button
+                                        class="editBtn bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
+                                        Edit
+                                    </button>
+                                    <form action="{{ route('posts.destroy') }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <input type="hidden" name="id" value="{{ $post->id }}">
+                                        <button
+                                            class="deleteBtn bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
+                                            type="submit">
+                                            Delete
+                                        </button>
+                                    </form>
+                                </div>
                             </div>
-                        </div>
                         @endforeach
                     </div>
                 </div>
@@ -166,4 +185,5 @@
     <script src="https://kit.fontawesome.com/d37debc9e5.js" crossorigin="anonymous"></script>
     <script src="{{ mix('resources/js/admin.js') }}"></script>
 </body>
+
 </html>
