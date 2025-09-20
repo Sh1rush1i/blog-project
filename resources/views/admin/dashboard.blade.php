@@ -24,15 +24,17 @@
                 <div>
                     <label class="block font-medium mb-1">Gambar</label>
                     <div id="previewContainer" class="flex space-x-2 mb-2 overflow-x-auto"></div>
-                    <input id="imageInput" type="file" multiple accept="image/*" class="w-full border rounded p-2" />
+                    <input name="image[]" id="imageInput" type="file" multiple accept="image/*"
+                        class="w-full border rounded p-2" />
                 </div>
                 <div>
                     <label class="block font-medium mb-1">Judul</label>
-                    <input type="text" class="w-full border rounded p-2" placeholder="Masukkan judul" />
+                    <input name="title" type="text" class="w-full border rounded p-2"
+                        placeholder="Masukkan judul" />
                 </div>
                 <div>
                     <label class="block font-medium mb-1">Tulisan</label>
-                    <textarea class="w-full border rounded p-2" rows="4" placeholder="Tulis isi di sini..."></textarea>
+                    <textarea name="content" class="w-full border rounded p-2" rows="4" placeholder="Tulis isi di sini..."></textarea>
                 </div>
                 <div>
                     <label class="block font-medium mb-1">Tanggal</label>
