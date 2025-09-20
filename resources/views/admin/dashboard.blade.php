@@ -130,16 +130,20 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
                         
                         {{-- Tulisan 1 --}}
+                        @foreach ($posts as $post)
                         <div class="card bg-white rounded-lg shadow-md overflow-hidden">
-                            <img src="https://placehold.co/1000" alt="Thumbnail" class="card-img w-full h-48 object-cover"/>
+                            @php
+                                    $firstImage = $images->where('post_id', $post->id)->first();
+                            @endphp
+                            <img src="{{ asset('storage/' . $firstImage->path ?? 'image/placeholder.png') }}" alt="Thumbnail" class="card-img w-full h-48 object-cover"/>
                             <div class="p-4">
                                 <h2 class="card-title text-lg font-semibold text-gray-800 mb-2 truncate">
-                                Judul Tulisan 1
+                                {{ $post->title }}
                                 </h2>
                                 <p class="card-desc text-gray-600 text-sm line-clamp-3">
-                                Lorem ipsum nigga dolor biden blast. Lorem ipsum nigga dolor biden blastLorem ipsum nigga dolor biden blastLorem ipsum nigga dolor biden blastLorem ipsum nigga dolor biden blastLorem ipsum nigga dolor biden blastLorem ipsum nigga dolor biden blast
+                                {{ $post->content }}
                                 </p>
-                                <p class="card-date text-xs text-gray-400 mt-3">18 September 2025</p>
+                                <p class="card-date text-xs text-gray-400 mt-3">{{ $post->date }}</p>
                             </div>
 
                             <div class="p-4 border-t flex items-center gap-2">
@@ -151,76 +155,7 @@
                                 </button>
                             </div>
                         </div>
-
-                        {{-- Tulisan 2 --}}
-                        <div class="card bg-white rounded-lg shadow-md overflow-hidden">
-                            <img src="https://placehold.co/900" alt="Thumbnail" class="card-img w-full h-48 object-cover"/>
-                            <div class="p-4">
-                                <h2 class="card-title text-lg font-semibold text-gray-800 mb-2 truncate">
-                                Judul Tulisan 2
-                                </h2>
-                                <p class="card-desc text-gray-600 text-sm line-clamp-3">
-                                Lorem ipsum nigga dolor biden blast. Lorem ipsum nigga dolor biden blastLorem ipsum nigga dolor biden blastLorem ipsum nigga dolor biden blastLorem ipsum nigga dolor biden blastLorem ipsum nigga dolor biden blastLorem ipsum nigga dolor biden blast
-                                </p>
-                                <p class="card-date text-xs text-gray-400 mt-3">18 September 2025</p>
-                            </div>
-
-                            <div class="p-4 border-t flex items-center gap-2">
-                                <button class="editBtn bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
-                                Edit
-                                </button>
-                                <button class="deleteBtn bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">
-                                Delete
-                                </button>
-                            </div>
-                        </div>
-
-                        {{-- Tulisan 3 --}}
-                        <div class="card bg-white rounded-lg shadow-md overflow-hidden">
-                            <img src="https://placehold.co/800" alt="Thumbnail" class="card-img w-full h-48 object-cover"/>
-                            <div class="p-4">
-                                <h2 class="card-title text-lg font-semibold text-gray-800 mb-2 truncate">
-                                Judul Tulisan 3
-                                </h2>
-                                <p class="card-desc text-gray-600 text-sm line-clamp-3">
-                                Lorem ipsum nigga dolor biden blast. Lorem ipsum nigga dolor biden blastLorem ipsum nigga dolor biden blastLorem ipsum nigga dolor biden blastLorem ipsum nigga dolor biden blastLorem ipsum nigga dolor biden blastLorem ipsum nigga dolor biden blast
-                                </p>
-                                <p class="card-date text-xs text-gray-400 mt-3">18 September 2025</p>
-                            </div>
-
-                            <div class="p-4 border-t flex items-center gap-2">
-                                <button class="editBtn bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
-                                Edit
-                                </button>
-                                <button class="deleteBtn bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">
-                                Delete
-                                </button>
-                            </div>
-                        </div>
-
-                        {{-- Tulisan 4 --}}
-                        <div class="card bg-white rounded-lg shadow-md overflow-hidden">
-                            <img src="https://placehold.co/700" alt="Thumbnail" class="card-img w-full h-48 object-cover"/>
-                            <div class="p-4">
-                                <h2 class="card-title text-lg font-semibold text-gray-800 mb-2 truncate">
-                                Judul Tulisan 4
-                                </h2>
-                                <p class="card-desc text-gray-600 text-sm line-clamp-3">
-                                Lorem ipsum nigga dolor biden blast. Lorem ipsum nigga dolor biden blastLorem ipsum nigga dolor biden blastLorem ipsum nigga dolor biden blastLorem ipsum nigga dolor biden blastLorem ipsum nigga dolor biden blastLorem ipsum nigga dolor biden blast
-                                </p>
-                                <p class="card-date text-xs text-gray-400 mt-3">18 September 2025</p>
-                            </div>
-
-                            <div class="p-4 border-t flex items-center gap-2">
-                                <button class="editBtn bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
-                                Edit
-                                </button>
-                                <button class="deleteBtn bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">
-                                Delete
-                                </button>
-                            </div>
-                        </div>
-
+                        @endforeach
                     </div>
                 </div>
             </main>
