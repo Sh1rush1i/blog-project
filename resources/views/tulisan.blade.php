@@ -34,21 +34,25 @@
     <section class="latest-article reveal">
         <h1>Tulisan Terbaru</h1>
         <p>Berikut adalah beberapa artikel terbaru dari saya.</p>
-        <div class="artikel-card">
-            @php
-                $firstImage = $images->firstWhere('post_id', $posts->first()->id);
-            @endphp
-            <img src="{{ asset('storage/' . $firstImage->path) }}" alt="Artikel Terbaru" />
-            <div class="gradient-overlay"></div>
-            <div class="artikel-overlay">
-                <div class="artikel-tanggal">
-                    <i class="fa-solid fa-calendar"></i>
-                    <p>{{ date('j F Y', strtotime($posts->first()->date)) }}</p>
+        @if ($posts->isNotEmpty())
+            <div class="artikel-card">
+                @php
+                    $firstImage = $images->firstWhere('post_id', $posts->first()->id);
+                @endphp
+                <img src="{{ asset('storage/' . $firstImage->path) }}" alt="Artikel Terbaru" />
+                <div class="gradient-overlay"></div>
+                <div class="artikel-overlay">
+                    <div class="artikel-tanggal">
+                        <i class="fa-solid fa-calendar"></i>
+                        <p>{{ date('j F Y', strtotime($posts->first()->date)) }}</p>
+                    </div>
+                    <h1>{{ $posts->first()->title }}</h1>
+                    <p>{{ $posts->first()->content }}</p>
                 </div>
-                <h1>{{ $posts->first()->title }}</h1>
-                <p>{{ $posts->first()->content }}</p>
             </div>
-        </div>
+        @else
+            <p>Tidak ada artikel terbaru yang tersedia.</p>
+        @endif
     </section>
 
     {{-- <!artikel> --}}
